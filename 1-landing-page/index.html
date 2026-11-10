@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brigade Altius Homes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Brigade Altius, Sholinganallur OMR: 3 & 4 BHK and duplex homes in 43-floor towers linked by Chennai's tallest residential skybridge. Book a free site visit with an authorised channel partner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sky-to-sea vertical journey. Photo hero with the enquiry card riding over its lower edge,
+   then alternating image/text bands, a truss-lattice divider borrowed from the skybridge, and a repeat enquiry at the foot.
+   Deliberately single-theme (bright sky world): every colour set explicitly. */
+:root{
+  --sky:#EAF2F9;
+  --paper:#FCFDFE;
+  --ink:#13213A;
+  --tide:#2C5A85;
+  --dusk:#D9602F;
+  --mist:#58687D;
+  --line:#D2DDE8;
+  --wa:#178C47;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--tide)}
+:focus-visible{outline:3px solid var(--dusk);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:.005em;text-wrap:balance;margin:0}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--tide)}
+.lead{color:var(--mist);max-width:60ch}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(252,253,254,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand b{font-family:var(--display);font-size:1.15rem;font-weight:600}
+.brand span{font-size:.72rem;color:var(--mist);letter-spacing:.04em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;font:700 .95rem/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{box-shadow:0 6px 18px rgba(23,140,71,.3)}
+.btn-dusk{background:var(--dusk);color:#fff}
+.btn-dusk:hover{box-shadow:0 8px 22px rgba(217,96,47,.35)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+.topbar .btn{padding:10px 16px;font-size:.88rem}
+
+/* hero */
+.hero{position:relative;background:var(--sky) center 40%/cover no-repeat;background-image:url("images/hero.jpg");min-height:min(78vh,720px);display:flex}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(234,242,249,.92) 0%,rgba(234,242,249,.55) 34%,rgba(234,242,249,0) 60%,rgba(19,33,58,.18) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-block:56px 140px}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4.6rem);line-height:1.02;max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--tide)}
+.hero p{font-size:clamp(1rem,1.6vw,1.15rem);color:#2E3E55;max-width:44ch;margin:18px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.84rem;font-weight:600;color:var(--ink)}
+.impression{position:absolute;right:var(--gutter-r);bottom:10px;z-index:1;font-size:.68rem;color:#fff;opacity:.85}
+
+/* enquiry card */
+.enquire-zone{position:relative;z-index:5;margin-top:-110px}
+.enquire-zone .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:end}
+.altimeter{padding-bottom:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -24px rgba(19,33,58,.35);padding:26px}
+.card h2{font-size:1.65rem;line-height:1.15}
+.card .sub{font-size:.9rem;color:var(--mist);margin:6px 0 18px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mist)}
+input,select{font:500 1rem var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;min-width:0}
+input:focus,select:focus{outline:none;border-color:var(--tide);box-shadow:0 0 0 3px rgba(44,90,133,.15)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{font-size:.78rem;color:#B3261E;min-height:0}
+.form-foot{grid-column:1/-1;display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.form-foot .btn{width:100%;padding:15px}
+.fine{font-size:.74rem;color:var(--mist);margin:0}
+.done{display:flex;flex-direction:column;gap:12px}
+.done h3{font-size:1.5rem}
+.done p{margin:0;color:var(--mist)}
+
+/* altimeter facts */
+.alt-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px}
+.alt-list li{border-top:1px solid var(--line);padding-top:10px}
+.alt-list b{display:block;font-family:var(--display);font-size:2.2rem;font-weight:500;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.alt-list span{font-size:.84rem;color:var(--mist)}
+
+/* truss divider */
+.truss{height:46px;margin-block:72px 0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='46' viewBox='0 0 92 46'%3E%3Cpath d='M0 1H92M0 45H92M0 1L46 45L92 1M0 45L46 1L92 45M46 1V45' fill='none' stroke='%23C9D6E3' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center}
+
+section{padding-block:72px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split > *{min-width:0}
+.photo{border-radius:14px;overflow:hidden;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo small{position:absolute;left:10px;bottom:8px;font-size:.66rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.section-head h2{font-size:clamp(1.9rem,4vw,3rem);line-height:1.08}
+.ticks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:baseline}
+.ticks li::before{content:"";flex:none;width:9px;height:9px;transform:translateY(-1px) rotate(45deg);border:1.5px solid var(--dusk)}
+
+/* skybridge band */
+.band{background:var(--ink);color:#E8EEF5}
+.band .eyebrow{color:#F0A27F}
+.band .lead{color:#AFBDCF}
+.band h2 em{color:#F0A27F;font-style:italic}
+.stat-row{display:flex;flex-wrap:wrap;gap:28px;margin-top:28px}
+.stat-row div{display:flex;flex-direction:column}
+.stat-row b{font-family:var(--display);font-size:2.6rem;font-weight:500;line-height:1}
+.stat-row span{font-size:.8rem;color:#AFBDCF;letter-spacing:.04em}
+
+/* homes */
+.homes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.home{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.home .tag{align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dusk)}
+.home h3{font-size:1.5rem;line-height:1.15}
+.home .size{font-variant-numeric:tabular-nums;font-weight:700;color:var(--tide)}
+.home p{margin:0;color:var(--mist);font-size:.92rem;flex:1}
+.home a{font-weight:700;font-size:.9rem;text-decoration:none;color:var(--ink);border-bottom:1.5px solid var(--dusk);align-self:flex-start;padding-bottom:2px}
+.home.rare{background:var(--sky);border-color:#BFD2E4}
+
+/* amenities */
+.amen-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.amen-grid .photo{min-height:280px}
+.amen-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px}
+.amen-cols h3{font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:10px}
+.amen-cols ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:.95rem}
+
+/* location */
+.loc{background:var(--sky)}
+.dist-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.dist{background:#fff;border-radius:14px;padding:20px;border:1px solid var(--line)}
+.dist h3{font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:12px}
+.dist ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.dist li{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.dist li:last-child{border-bottom:0;padding-bottom:0}
+.dist li b{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.metro-call{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:14px;padding:18px 22px}
+.metro-call b{font-family:var(--display);font-size:2rem;font-weight:500;line-height:1}
+.metro-call span{color:#C5D2E1;font-size:.92rem}
+
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.spec{padding:20px 18px 20px 0;border-bottom:1px solid var(--line)}
+.spec h3{font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:6px}
+.spec p{margin:0;font-size:.95rem}
+
+/* final */
+.final{background:linear-gradient(180deg,var(--paper),var(--sky))}
+.final .split{align-items:start}
+.why{display:grid;gap:16px;margin-top:22px}
+.why div{display:flex;gap:14px}
+.why b{font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--dusk);min-width:1.4em}
+.why p{margin:0}
+.why strong{display:block}
+.why span{color:var(--mist);font-size:.92rem}
+
+footer{background:var(--ink);color:#AFBDCF;font-size:.8rem;padding-block:40px 110px}
+footer .wrap{display:grid;gap:14px}
+footer b{color:#fff}
+footer p{margin:0;max-width:90ch}
+
+/* mobile action bar */
+.mbar{display:none}
+
+@media (max-width: 900px){
+  .enquire-zone{margin-top:-90px}
+  .enquire-zone .wrap{grid-template-columns:1fr}
+  .altimeter{order:2;padding-top:24px}
+  .split{grid-template-columns:1fr;gap:28px}
+  .homes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .amen-grid{grid-template-columns:1fr}
+  .amen-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  section{padding-block:56px}
+}
+@media (max-width: 560px){
+  .topbar .btn span{display:none}
+  .hero{min-height:560px}
+  .hero::after{background:linear-gradient(180deg,rgba(234,242,249,.95) 0%,rgba(234,242,249,.85) 52%,rgba(234,242,249,.2) 78%,rgba(19,33,58,.18) 100%)}
+  .hero .wrap{padding-block:36px 120px}
+  form{grid-template-columns:1fr}
+  .homes,.dist-grid,.specs,.amen-cols{grid-template-columns:1fr}
+  .card{padding:20px}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(252,253,254,.97);border-top:1px solid var(--line);padding:10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gutter-l)}
+  .mbar .btn{padding:13px 10px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><b data-cfg="firm">Property Link Consultants</b><span>Authorised channel partner · Brigade Altius</span></div>
+    <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+      <span>WhatsApp us</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="hero" role="img" aria-label="Artist's impression of the three Brigade Altius towers above the clouds, joined by a skybridge">
+    <div class="wrap">
+      <div class="eyebrow">Sholinganallur · OMR · Chennai</div>
+      <h1 style="margin-top:14px">Brigade Altius. Live <em>43 floors</em> above Chennai.</h1>
+      <p>3 &amp; 4 BHK homes and sky duplexes in three towers joined by Chennai's tallest residential skybridge, 50 m from the proposed Sholinganallur metro station.</p>
+      <div class="chips">
+        <span class="chip">3 BHK · 4 BHK · Duplex</span>
+        <span class="chip">1,726 – 5,054 sq ft</span>
+        <span class="chip">No common walls</span>
+      </div>
+    </div>
+    <span class="impression">Artist's impression</span>
+  </div>
+
+  <div class="enquire-zone" id="visit">
+    <div class="wrap">
+      <div class="altimeter">
+        <ul class="alt-list">
+          <li><b>43</b><span>floors, three towers</span></li>
+          <li><b>400 m</b><span>skybridge walk at the top</span></li>
+          <li><b>50 m</b><span>to the proposed metro station</span></li>
+          <li><b>1 km</b><span>to Wipro, 1.1 km to Chettinad Health City</span></li>
+        </ul>
+      </div>
+      <div class="card" data-form-host="1"></div>
+    </div>
+  </div>
+
+  <div class="truss" aria-hidden="true"></div>
+
+  <section aria-labelledby="sky-h" class="band" style="margin-top:0">
+    <div class="wrap split">
+      <div class="photo" style="aspect-ratio:1/1"><img src="images/skybridge.jpg" alt="Families walking across the Brigade Altius skybridge at sunset" loading="lazy"><small>Artist's impression</small></div>
+      <div>
+        <div class="eyebrow">At the top</div>
+        <h2 id="sky-h" style="font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;margin-top:10px">A 400 m walk <em>in the clouds</em>, 43 floors up.</h2>
+        <p class="lead" style="margin-top:16px">The skybridge links all three towers at the terrace. Morning walks, sunset evenings and a view that runs from the city to the sea. Tower 3's terrace adds private sea-view decks, a lounge and a party area.</p>
+        <div class="stat-row">
+          <div><b>3</b><span>towers linked</span></div>
+          <div><b>G+43</b><span>floors</span></div>
+          <div><b>Sea</b><span>view terraces</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="homes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">The homes</div>
+        <h2 id="homes-h">Choose your floor plan</h2>
+        <p class="lead">Every home has no shared walls with neighbours, VRV ducted air conditioning in every room and engineered marble in the living areas. Sizes are super built-up area.</p>
+      </div>
+      <div class="homes">
+        <article class="home"><span class="tag">Most popular</span><h3>3 BHK</h3><div class="size">1,726 – 2,133 sq ft</div><p>Three bedrooms, two or three toilets and a balcony over the city. Ideal for families working along OMR.</p><a href="#visit" data-pick="3 BHK">Get price &amp; plans</a></article>
+        <article class="home"><span class="tag">Work from home</span><h3>3 BHK + Study</h3><div class="size">2,168 – 2,250 sq ft</div><p>A separate study, three toilets and a larger living-dining space.</p><a href="#visit" data-pick="3 BHK + Study">Get price &amp; plans</a></article>
+        <article class="home"><span class="tag">Staff entry</span><h3>3 BHK + Maid's room</h3><div class="size">2,109 – 2,630 sq ft</div><p>Maid's room and toilet with a separate staff entrance, plus a generous utility area.</p><a href="#visit" data-pick="3 BHK + Maid">Get price &amp; plans</a></article>
+        <article class="home"><span class="tag">Larger families</span><h3>4 BHK + Maid's room</h3><div class="size">2,545 – 2,577 sq ft</div><p>Four bedrooms with four toilets, room for parents and children under one roof.</p><a href="#visit" data-pick="4 BHK">Get price &amp; plans</a></article>
+        <article class="home rare"><span class="tag">Very few</span><h3>Terrace homes</h3><div class="size">+762 / +1,278 sq ft terrace</div><p>3 BHK and 4 BHK homes with a private open garden terrace. Only a handful in the project.</p><a href="#visit" data-pick="Terrace home">Ask about availability</a></article>
+        <article class="home rare"><span class="tag">Most exclusive</span><h3>Sky duplexes</h3><div class="size">4,064 – 5,054 sq ft</div><p>4 BHK duplexes with double-height living, a family lounge and a study.</p><a href="#visit" data-pick="Duplex">Book a private viewing</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="amen-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Amenities</div>
+        <h2 id="amen-h">A resort on the podium</h2>
+      </div>
+      <div class="amen-grid">
+        <div class="photo"><img src="images/pool.jpg" alt="Podium-level pool with deck seating" loading="lazy"><small>Artist's impression</small></div>
+        <div class="photo"><img src="images/court.jpg" alt="Sunken court garden with children playing" loading="lazy"><small>Artist's impression</small></div>
+      </div>
+      <div class="amen-cols">
+        <div><h3>Podium (4th floor)</h3><ul><li>Swimming pool, kids' pool &amp; jacuzzi</li><li>Indoor gym &amp; spa</li><li>Banquet halls &amp; AV room</li><li>Squash &amp; badminton courts</li><li>Coffee shop &amp; business centre</li></ul></div>
+        <div><h3>Ground level</h3><ul><li>Futsal &amp; multipurpose court</li><li>Box cricket</li><li>Pet park</li><li>Outdoor gym &amp; pedestrian loop</li><li>Children's play area</li></ul></div>
+        <div><h3>Terrace (43rd floor)</h3><ul><li>400 m skybridge</li><li>Sea-view terraces</li><li>Yoga deck &amp; party area</li><li>Senior citizens' lawn (6th floor)</li><li>100% power backup</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="loc" aria-labelledby="loc-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Location</div>
+        <h2 id="loc-h">Walk to work. Drive to the beach.</h2>
+        <p class="lead">Brigade Altius sits on the OMR – ECR link at Sholinganallur, in the middle of Chennai's IT corridor.</p>
+      </div>
+      <div class="dist-grid">
+        <div class="dist"><h3>Work</h3><ul><li>Wipro<b>1 km</b></li><li>Accenture<b>1.5 km</b></li><li>Cognizant<b>3 km</b></li><li>Tech Mahindra<b>3 km</b></li><li>HCL Technologies<b>3.5 km</b></li><li>Elcot SEZ IT Park<b>3.5 km</b></li></ul></div>
+        <div class="dist"><h3>Health</h3><ul><li>Chettinad Health City<b>1.1 km</b></li><li>Swaram Hospital<b>5 km</b></li><li>Gleneagles Hospital<b>5.5 km</b></li><li>Apollo Speciality<b>9 km</b></li></ul></div>
+        <div class="dist"><h3>Schools</h3><ul><li>Velammal New Gen<b>1.5 km</b></li><li>Narayana E-Techno<b>2 km</b></li><li>Orchids International<b>2 km</b></li><li>Gateway International<b>3 km</b></li><li>Sishya OMR<b>5 km</b></li></ul></div>
+        <div class="dist"><h3>Leisure</h3><ul><li>ECR Beach<b>4.5 km</b></li><li>VGP Universal Kingdom<b>5 km</b></li><li>BSR Mall<b>6.5 km</b></li><li>Marina Mall<b>8 km</b></li><li>Phoenix Market City<b>14 km</b></li></ul></div>
+      </div>
+      <div class="metro-call"><b>50 m</b><span>to the proposed Sholinganallur metro station, where the planned Purple and Red lines meet. Distances are approximate, from the developer's brochure.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="spec-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Specifications</div>
+        <h2 id="spec-h">Finished to a premium standard</h2>
+      </div>
+      <div class="specs">
+        <div class="spec"><h3>Flooring</h3><p>Engineered marble in living, dining and kitchen; wood-finish tiles in the master bedroom</p></div>
+        <div class="spec"><h3>Air conditioning</h3><p>VRV ducted splits in the living room and every bedroom</p></div>
+        <div class="spec"><h3>Bathrooms</h3><p>Kohler, Grohe or Toto fittings; glass shower partition in the master bath</p></div>
+        <div class="spec"><h3>Security &amp; power</h3><p>Digital lock on the main door; 100% DG backup for homes and common areas</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-h">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Free site visit</div>
+        <h2 id="final-h" style="font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;margin-top:10px">See Altius in person this weekend</h2>
+        <div class="why">
+          <div><b>1</b><p><strong>Tell us what you need</strong><span>Size, budget and when you plan to buy.</span></p></div>
+          <div><b>2</b><p><strong>Get matching units and prices</strong><span>From Brigade's current price sheet, on WhatsApp.</span></p></div>
+          <div><b>3</b><p><strong>Visit with free pickup</strong><span>Weekday or weekend, from your home. Video tours for NRI buyers.</span></p></div>
+        </div>
+        <p class="fine" style="margin-top:22px">Our service is free for buyers. Channel partner fees are paid by the developer.</p>
+      </div>
+      <div class="card" data-form-host="2"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b data-cfg="firm">Property Link Consultants</b> · Authorised channel partner for Brigade Enterprises Ltd · TN RERA agent reg. no. <span data-cfg="agentRera">[to be added]</span> · Phone/WhatsApp <span data-cfg="phoneDisplay">+91 63692 18562</span></p>
+    <p>Project: Brigade Altius, Sholinganallur, Chennai · TN RERA Reg. No. TN/29/Building/0020/2025 · details at rera.tn.gov.in</p>
+    <p>This page is run by an independent channel partner and is not the developer's official website. Images are artist's impressions. The metro station is proposed. Sizes, specifications, prices and availability are as per the developer's brochure and price sheet and may change; please confirm before booking.</p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-dusk" href="#visit">Book a visit</a>
+</div>
+
+<template id="form-tpl">
+  <div class="form-view">
+    <h2>Get prices &amp; book a free visit</h2>
+    <p class="sub">Matching floor plans and current prices on WhatsApp within minutes.</p>
+    <form novalidate>
+      <div class="field full"><label for="name-X">Your name</label><input id="name-X" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="phone-X">Mobile / WhatsApp</label><input id="phone-X" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx" required><span class="err" data-err="phone"></span></div>
+      <div class="field"><label for="where-X">You live in</label><select id="where-X" name="where"><option>Chennai</option><option>Elsewhere in India</option><option>Abroad (NRI)</option></select></div>
+      <div class="field"><label for="config-X">Home type</label><select id="config-X" name="config"><option>3 BHK</option><option>3 BHK + Study</option><option>3 BHK + Maid</option><option>4 BHK</option><option>Terrace home</option><option>Duplex</option><option>Not sure yet</option></select></div>
+      <div class="field"><label for="budget-X">Budget</label><select id="budget-X" name="budget"><option>₹2 – 2.5 Cr</option><option>₹2.5 – 3.5 Cr</option><option>₹3.5 – 5 Cr</option><option>₹5 Cr +</option></select></div>
+      <div class="field"><label for="when-X">Planning to buy</label><select id="when-X" name="when"><option>Within 1 month</option><option>1 – 3 months</option><option>3 – 6 months</option><option>Just exploring</option></select></div>
+      <div class="field"><label for="visit-X">Site visit</label><select id="visit-X" name="visit"><option>This weekend</option><option>A weekday</option><option>Video tour (NRI)</option><option>Call me first</option></select></div>
+      <div class="hp" aria-hidden="true"><label for="website-X">Leave this empty</label><input id="website-X" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="form-foot">
+        <button class="btn btn-dusk" type="submit">Get prices on WhatsApp</button>
+        <p class="fine">We'll use your number only to share Brigade Altius details. No spam.</p>
+      </div>
+    </form>
+  </div>
+  <div class="done" hidden>
+    <h3>Almost done, <span data-name></span></h3>
+    <p>Thanks, we've got your details and will call you shortly. For a faster reply, send them on WhatsApp too.</p>
+    <a class="btn btn-wa" data-send href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <p class="fine">WhatsApp didn't open? Message us at <b data-cfg="phoneDisplay">+91 63692 18562</b> with your name and home type.</p>
+    <button class="btn btn-ghost" type="button" data-back>Edit details</button>
+  </div>
+</template>
+
+<script>
+/* ===== Edit these three lines ===== */
+const CONFIG = {
+  firm: "Property Link Consultants",
+  whatsapp: "916369218562",          // country code + number, digits only
+  phoneDisplay: "+91 63692 18562",
+  agentRera: "[to be added]",
+  // Paste your Google Apps Script Web app URL here (ends in /exec):
+  leadsEndpoint: "PASTE_WEB_APP_URL_HERE"
+};
+const UTM = (() => { const p = new URLSearchParams(location.search), o = {};
+  ["utm_source","utm_medium","utm_campaign"].forEach(k => { if (p.get(k)) o[k] = p.get(k).slice(0,60); }); return o; })();
+function saveLead(d){
+  if (!/^https:\/\/script\.google\.com\//.test(CONFIG.leadsEndpoint)) return;
+  try{
+    fetch(CONFIG.leadsEndpoint, { method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({ action:"web", ...d, ...UTM, page: location.href.slice(0,200) }), keepalive:true }).catch(()=>{});
+  }catch(e){}
+}
+/* ================================== */
+
+document.querySelectorAll("[data-cfg]").forEach(el => { const v = CONFIG[el.dataset.cfg]; if (v) el.textContent = v; });
+const waLink = text => "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(text);
+document.querySelectorAll(".js-wa").forEach(a => a.href = waLink("Hi, I'm interested in Brigade Altius, Sholinganallur. Please share floor plans and prices."));
+
+const tpl = document.getElementById("form-tpl");
+const forms = [];
+document.querySelectorAll("[data-form-host]").forEach(host => {
+  const n = host.dataset.formHost;
+  const frag = tpl.content.cloneNode(true);
+  frag.querySelectorAll("[id$='-X']").forEach(el => el.id = el.id.replace("-X", "-" + n));
+  frag.querySelectorAll("label[for$='-X']").forEach(el => el.htmlFor = el.htmlFor.replace("-X", "-" + n));
+  frag.querySelectorAll("[data-cfg]").forEach(el => { const v = CONFIG[el.dataset.cfg]; if (v) el.textContent = v; });
+  host.appendChild(frag);
+  const form = host.querySelector("form"), view = host.querySelector(".form-view"), done = host.querySelector(".done");
+  forms.push(form);
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    const errEl = form.querySelector("[data-err='phone']");
+    const digits = (d.phone || "").replace(/\D/g, "");
+    let ok = true;
+    if (!d.name.trim()) { form.name.focus(); ok = false; }
+    if (digits.length < 10) { errEl.textContent = "Enter a valid mobile number with country code if outside India."; if (ok) form.phone.focus(); ok = false; } else errEl.textContent = "";
+    if (!ok) return;
+    const msg = `Hi, I'd like details on Brigade Altius.\n\nName: ${d.name.trim()}\nMobile: ${d.phone.trim()}\nLives in: ${d.where}\nHome type: ${d.config}\nBudget: ${d.budget}\nPlanning to buy: ${d.when}\nSite visit: ${d.visit}`;
+    saveLead(d);
+    done.querySelector("p").textContent = /^https:\/\/script\.google\.com\//.test(CONFIG.leadsEndpoint)
+      ? "Thanks, we've got your details and will call you shortly. For a faster reply, send them on WhatsApp too."
+      : "Tap below to send your details on WhatsApp. We'll reply with matching floor plans and current prices.";
+    done.querySelector("[data-send]").href = waLink(msg);
+    done.querySelector("[data-name]").textContent = d.name.trim().split(" ")[0];
+    view.hidden = true; done.hidden = false;
+  });
+  done.querySelector("[data-back]").addEventListener("click", () => { done.hidden = true; view.hidden = false; });
+});
+
+document.querySelectorAll("[data-pick]").forEach(a => a.addEventListener("click", () => {
+  const f = forms[0]; if (!f) return;
+  const sel = f.querySelector("select[name='config']");
+  [...sel.options].forEach(o => { if (o.text === a.dataset.pick) sel.value = o.text; });
+}));
+</script>
+
+</body>
+</html>

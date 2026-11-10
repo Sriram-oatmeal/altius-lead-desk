@@ -1,0 +1,80 @@
+BRIGADE ALTIUS – AUTOMATIC LEAD CAPTURE SETUP (about 15 minutes)
+=================================================================
+
+How it works
+------------
+Buyer fills the form on your landing page
+  -> the lead is saved in your Google Sheet straight away
+  -> you get an email alert with the buyer's number and a WhatsApp link
+  -> the lead appears in your Lead Desk within 30 seconds, status "New",
+     next action "Call within 5 minutes", marked NEW
+Every change you make in the Lead Desk is saved back to the same sheet,
+so your phone and laptop always show the same list.
+
+Your private access key (keep it secret, don't post it anywhere):
+    altius-xilUC_C2vKtITelR0Aesq6Nt
+
+
+STEP 1 – Create the Google Sheet
+--------------------------------
+1. On a computer, open  sheets.new  (signed in to your Google account).
+2. Name it "Altius Leads".
+
+STEP 2 – Add the script
+-----------------------
+1. In the sheet, click Extensions -> Apps Script.
+2. Delete everything in the editor.
+3. Open 3-google-sheet-script/Code.gs from this folder (Notepad is fine),
+   copy all of it and paste it into the editor. Click the save icon.
+
+STEP 3 – Run setup once
+-----------------------
+1. In the function menu at the top, choose "setup", then click Run.
+2. Google asks for permission: Review permissions -> choose your account
+   -> "Advanced" -> "Go to Altius Leads (unsafe)" -> Allow.
+   (It says unsafe only because you wrote the script yourself. It needs the
+   sheet, and email so it can send you lead alerts.)
+3. Back in the sheet you will see a "Leads" tab with column headings.
+
+STEP 4 – Publish it as a web app
+--------------------------------
+1. Click Deploy -> New deployment.
+2. Click the gear icon next to "Select type" -> Web app.
+3. Execute as: Me.   Who has access: Anyone.
+4. Click Deploy, then copy the Web app URL. It ends in /exec.
+5. Test: paste the URL into a browser. You should see {"ok":true,...}
+
+STEP 5 – Connect the landing page
+---------------------------------
+1. Open 1-landing-page/index.html in Notepad.
+2. Find the line:   leadsEndpoint: "PASTE_WEB_APP_URL_HERE"
+3. Replace PASTE_WEB_APP_URL_HERE with your /exec URL (keep the quotes). Save.
+   (Or send the URL to Claude and it will do this for you.)
+4. Drag the 1-landing-page folder onto app.netlify.com/drop
+   (or onto your existing site's Deploys page to update it).
+
+STEP 6 – Connect the Lead Desk
+------------------------------
+1. Drag the 2-lead-desk folder onto app.netlify.com/drop as a separate site.
+2. Open it, paste the /exec URL and the access key above, click Connect.
+3. Do this once on each phone or computer you use.
+
+STEP 7 – Test it
+----------------
+Fill the form on your landing page with your own name and number.
+Within a minute you should see it in the sheet, get the email,
+and see it in the Lead Desk marked NEW.
+
+
+Tracking which ads bring leads
+------------------------------
+Add these to the end of your landing page link in each ad:
+  Meta ads:    ?utm_source=fb&utm_campaign=altius_nov
+  Google ads:  ?utm_source=google&utm_campaign=altius_search
+  WhatsApp:    ?utm_source=whatsapp
+The Lead Desk then fills the Source column automatically and shows the campaign.
+
+If you change Code.gs later
+---------------------------
+Deploy -> Manage deployments -> pencil icon -> Version: New version -> Deploy.
+This keeps the same URL.
